@@ -1,0 +1,88 @@
+/*      
+ *		Bandscape Splash CSS (c) Bandscape 2011
+ * 		author: Artur Sapek
+ */
+body{
+	height:100%; 
+	margin:0px; 
+	background:#000;
+}
+.text{
+	position:relative;
+	top:220px;
+	color:#494949;
+	font-family: Arial;
+	font-size: 12px;
+	width:100%;
+}
+.text div{
+	margin:0px auto;
+	width:318px;
+}
+#splashlogo{
+	margin: 0px auto; 
+	width:300px;   
+	position:relative; 
+	top:300px;
+}
+#splashlogo div{
+	width:50px;
+	float:left;
+}
+.splashlogo_layer, .splashlogo_layer2{
+	display:inline;
+}
+.splashlogo_layer div{
+	height:60px;
+}
+.splashlogo_layer2 div{
+	height:25px;
+}
+#splashlogo img{
+	position:relative;
+	bottom:87px;
+}
+
+.splashlogo1{
+	background:#e63d64;
+}	
+.splashlogo2{
+	background:#ed5b83;
+}
+.splashlogo3{
+	background:#f187a9;
+}
+.splashlogo4{
+	background:#ea6690;
+}
+.splashlogo5{
+	background:#d44679;
+}
+.splashlogo6{
+	background:#cb3453;
+}
+.splashlogo7{
+	background:#7b7ab9;
+	height:15px;
+}
+.splashlogo8{
+	background:#8095bf;
+	
+}
+.splashlogo9{
+	background:#afc0e1;
+	
+}
+.splashlogo10{
+	background:#8a9fcc;
+	
+}
+.splashlogo11{
+	background:#6f86bf;
+	
+}
+.splashlogo12{
+	background:#526aa9;
+	
+}
+
