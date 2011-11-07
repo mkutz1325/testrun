@@ -1,7 +1,9 @@
+var STATIC_URL = "/static/";
+
 function band(a, b, c, d){ // uses of this are at the bottom of the file. Parameters: (Band name, musical genre, location of album cover image, origin of band)
 	this.bandname = a;
 	this.genre = b;
-	this.albumsrc = c;
+	this.albumsrc = STATIC_URL + c;
 	this.homecity = d;
 	this.headercontent = null;
 	this.infoheading = a;
