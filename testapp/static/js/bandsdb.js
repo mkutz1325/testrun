@@ -1,4 +1,4 @@
-var STATIC_URL = "/static/";
+var STATIC_URL = "static/";   //variable used to tell js where to look for static files in django interface
 
 function band(a, b, c, d){ // uses of this are at the bottom of the file. Parameters: (Band name, musical genre, location of album cover image, origin of band)
 	this.bandname = a;
@@ -10,7 +10,7 @@ function band(a, b, c, d){ // uses of this are at the bottom of the file. Parame
 	this.infoline1 = b;
 	this.infoline2 = "from " + d;
 	this.infoline3 = "currently in Seattle";
-	this.albumsrc =  c;
+	this.albumsrc = STATIC_URL + c;
 	bandsdb.push(this);	
 }
 

@@ -3,6 +3,8 @@
 //     (C) 2011
 //     inputs: position, venuename
 
+var STATIC_ROOT = "static/";   //variable used any time a source for an static file is called
+
 	
 function vmarker(opt_opts) {
 	opt_opts = opt_opts || {};
@@ -28,7 +30,7 @@ function vmarker(opt_opts) {
 	this.venuenameclean = this.venuename.split(' ').join(''); 
 	this.alertin = true;
 	if (this.genre in _vmarkerLogomap) this.logoimg = _vmarkerLogomap[this.genre];
-	if (!(this.genre in _vmarkerLogomap)) this.logoimg = "img/coffee.png";
+	if (!(this.genre in _vmarkerLogomap)) this.logoimg = STATIC_ROOT + "img/coffee.png";      //img file
 	this.deghostall = [];
 	this.markerobjects = [];
 }
@@ -61,7 +63,7 @@ vmarker.prototype.bandtab = function(name, genre, albumsrc){
 	var bandname = create("div", {}, {className: "bandtab"}, null);
 	var bandnamespan = create("span", {padding: "7px", paddingBottom: "0px", fontFamily: "Arial", color: "#1C2C35", fontSize: "33px"}, null, name);
 	var genrespan = create("span", {padding: "7px", paddingTop: "0px", fontFamily: "Arial", color: "#EFEFEF", fontSize: "14px", display: "block"}, null, genre);
-	var album = create("img", {width:"60px", height:"60px"}, {src: albumsrc || "img/blank.jpg"}, null);
+	var album = create("img", {width:"60px", height:"60px"}, {src: albumsrc || STATIC_ROOT + "img/blank.jpg"}, null);   //img file
 	var append = [[bandname, bandnamespan], [bandname, genrespan], [wrapper, bandname], [all, album], [all, wrapper]];
 	appendobj(append);
 	return all;
@@ -81,13 +83,13 @@ vmarker.prototype.showInfoTab = function(info, bgcolor){
 vmarker.prototype.drawVenueIcon = function() {
 	var bgs = ['', '#AAD6C1', '#B6D887', '#9CD088', '#B1DEE2']; var borders = ['', '#76B293', '#97B761', '#79AD64', '#84BABB']; 
 	if (!this.base) {
-		this.addimg({"logo": this.logoimg, "door": "img/door.png", "roof": "img/roof.png"});	
+		this.addimg({"logo": this.logoimg, "door": STATIC_ROOT + "img/door.png", "roof": STATIC_ROOT + "img/roof.png"});	//img file
 		this.wrap = create("div", null, null, null);
 		this.base = create("div", {position: "absolute", width: "50px", height: "31px", background: "#D0D5DB", borderBottom: "1px solid #B7B7B7"}, {className: "vmarker_base"}, null);//"#cfd5da"
 		this.base.id = "main" + this.venuenameclean;
 		this.addobj([this.base, this.logo, this.door, this.roof], 3);	
 		this.hoverarea = create("div", {position: "absolute", cursor: "pointer", width: "50px", height: "30px", zIndex: 20}, null, null);
-		this.addimg({"arro": "img/arro.png"});
+		this.addimg({"arro": STATIC_ROOT + "img/arro.png"});  //img file
 		this.addobj([this.hoverarea], 5);
 		this.addobj([this.arro], 2);	
 		this.alert && this.drawAlertIcon();
@@ -101,7 +103,7 @@ vmarker.prototype.drawVenueIcon = function() {
 
 vmarker.prototype.drawVenueIconForClosed = function() {
 	//if (!this.base) {
-		this.addimg({"logo": this.logoimg, "door": "img/door.png", "roof": "img/roof.png", "shadow": "img/vmarker_shadow.png"});	
+		this.addimg({"logo": this.logoimg, "door": STATIC_ROOT + "img/door.png", "roof": STATIC_ROOT + "img/roof.png", "shadow": STATIC_ROOT + "img/vmarker_shadow.png"});	//img file
 		this.alert && this.drawAlertIcon();
 		this.wrap = create("div", null, null, null);
 		this.base = create("div", {position: "absolute", width: "50px", height: "31px", background: "#CECECE"}, null, null);
@@ -113,7 +115,7 @@ vmarker.prototype.drawVenueIconForClosed = function() {
 
 vmarker.prototype.drawClosedIcon = function() {
 if (!this.dot){
-	this.addimg({"dot": "img/arro_full.png"});
+	this.addimg({"dot": STATIC_ROOT + "img/arro_full.png"});  //img file
 	this.hoverarea = create("div", {position: "absolute", cursor: "pointer", width: "10px", height: "10px", zIndex: 19}, null, null);
 	this.addobj([this.dot], 3);
 	this.addobj([this.hoverarea], 5);
@@ -126,7 +128,7 @@ if (!this.dot){
 }
 
 vmarker.prototype.drawAlertIcon = function() {
-	this.alerticon = this.putimg("img/alert.png");
+	this.alerticon = this.putimg(STATIC_ROOT + "img/alert.png");  //img file
 	this.alerticon.style.display = "inline";
 	this.getPanes()[this.pane].appendChild(this.alerticon);
 }
@@ -143,7 +145,7 @@ vmarker.prototype.drawFeatures = function() { // drawFeatures
 		}
 		if(this.hidden){
 			this.drawVenueIconForClosed();
-			this.dot.src = "img/arrofull2.png";
+			this.dot.src = STATIC_ROOT + "img/arrofull2.png";   //img file
 			this.positionElements([[this.base, -6, 30], [this.logo, -9, 27], [this.door, -37, 23], [this.roof, -6, 39], [this.shadow, -6, 0]]);
 			this.hoverarea.style.width = "52px";
 			this.hoverarea.style.height = "34px";
@@ -370,7 +372,7 @@ vmarker.prototype.hoverleave = function() {
 			this.hoverarea.style.width = "10px";
 			this.hoverarea.style.height = "10px";
 			this.positionElements([[this.hoverarea, -3, 6]]);
-			this.dot.src = "img/arro_full.png";
+			this.dot.src = STATIC_ROOT + "img/arro_full.png";   //img file
 			this.hoverarea.style.zIndex = 19;
 	}
 

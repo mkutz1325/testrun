@@ -1,5 +1,7 @@
 //yo connor ignore the stuff until the line with all the asterisks
 
+var STATIC_ROOT = "static/"  //variable used to tell javascript where to find image files in django interface
+
 
 function initialize() {
 	maptime_src = 0;
@@ -87,7 +89,7 @@ var bandstyles =  new google.maps.StyledMapType(weirdshower,styledMapOptions);
 map.mapTypes.set('bandscape', bandstyles);
 map.setMapTypeId('bandscape');
 
-_vmarkerLogomap = {"Theater": "img/theater.png", "Bar/tavern": "img/bar.png", "Restaurant": "img/coffee.png"}
+_vmarkerLogomap = {"Theater": STATIC_ROOT + "img/theater.png", "Bar/tavern": STATIC_ROOT + "img/bar.png", "Restaurant": STATIC_ROOT + "img/coffee.png"} //img file
 
 
 

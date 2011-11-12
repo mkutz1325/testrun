@@ -3,6 +3,8 @@
 //	   author: Artur Sapek
 //
 
+var STATIC_ROOT = "static/";   //tells js where to look for static files in django interface
+
 function permalinkButton(x){
 	var args = x;
 	var _root = this;
@@ -44,7 +46,7 @@ function permalinkButton(x){
 
 
 function pseudo_vmarker(){ 
-	var parts = [["all","div"], ["base","div"], ["logo","img","img/coffee.png"], ["door","img","img/door.png"], ["roof","img","img/roof.png"], ["shadow","img","img/vmarker_shadow.png"]];
+	var parts = [["all","div"], ["base","div"], ["logo","img",STATIC_ROOT + "img/coffee.png"], ["door","img",STATIC_ROOT + "img/door.png"], ["roof","img",STATIC_ROOT + "img/roof.png"], ["shadow","img",STATIC_ROOT + "img/vmarker_shadow.png"]];  //img file
 	for (var i = 0; i < parts.length; i++){
 		this[parts[i][0]] = createC(parts[i][1], {className:"pseudoVmarker_" + parts[i][0]});
 		if (parts[i][2]) this[parts[i][0]].src = parts[i][2];
@@ -371,7 +373,7 @@ function mapFilterDialog(){ //dank
 	var dropdownFocus = false;
 	var _top_ = 0;
 	this.init = function(){
-		this.addButton = createC("img", {src: "img/add_filter.png", className: "mapFD_add_button"});
+		this.addButton = createC("img", {src: STATIC_ROOT + "img/add_filter.png", className: "mapFD_add_button"});  //img file
 		this.dropdown = createC("div", {className: "mapFD_dropdown_container"}); 
 		this.wrapper = createC("div", {className: "mapFD_add_wrapper"}, null, [this.addButton]);
 		this.all = createC("div", {className: "mapFD_add_all"}, null, [this.wrapper]);
@@ -446,7 +448,7 @@ function bandtabSmall(name, albumsrc, first, band){
 	var wrapper = create("div", {float: "left", display: "inline", position: "absolute", left: "28px"});
 	this.bandname = create("div", {}, {className: "bandtabSmall_tab"});
 	var bandnamespan = createC("span", {className:"bandtabSmall_name"},name);
-	var album = create("img", {width: "28px", paddingBottom: "0px"}, {src: albumsrc || "img/blank.jpg"});
+	var album = create("img", {width: "28px", paddingBottom: "0px"}, {src: albumsrc || STATIC_ROOT + "img/blank.jpg"});  //img file
 	appendobj([[hoverwrapper, album], [this.bandname, bandnamespan], [hoverwrapper, wrapper], [wrapper, this.bandname], [this.all, hoverwrapper]]);
 	$(hoverwrapper).click(function(e){addInfobox(band, "band"); e.stopPropagation()});
 }
